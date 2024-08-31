@@ -15,7 +15,7 @@ This project demonstrates API development and containerization using Docker.
 1. **Clone the Repository**
 
    ```bash
-   git clone [https://github.com/DanAletor/shortlet.app.git](https://github.com/DanAletor/Availability-API.git)
+   git clone https://github.com/DanAletor/Availability-API.git
    ```
 
 2. **Install Dependencies**
