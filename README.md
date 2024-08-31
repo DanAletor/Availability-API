@@ -1,6 +1,6 @@
 ## Availability API
 
-**A simple Availability API mock project built with Flask to check property availability on shortlet.app.**
+**A simple Availability API mock project built with Flask to check property availability and check the currrent time on shortlet.app.**
 
 This project demonstrates API development and containerization using Docker.
 
@@ -38,7 +38,7 @@ This project demonstrates API development and containerization using Docker.
 4. **Run with Docker**
 
    ```bash
-   sudo docker build -t availability-api .
+   sudo docker buildx build -t availability-api .
    sudo docker run -p 5000:5000 availability-api
    ```
 
