@@ -22,5 +22,20 @@ Ensure you have the following installed on your machine:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/availability-api.git
-   cd availability-api
+   git clone https://github.com/DanAletor/shortlet.app.git
+Install Dependencies
+
+2. **Create a virtual environment and install the required dependencies:**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+pip install -r requirements.txt
+
+3. **Run the Application**
+
+Start the Flask application locally:
+
+```bash
+python app.py
+
