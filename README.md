@@ -1,21 +1,14 @@
-# AVAILABILITY API 
- A simple Availability API mock project built with Flask that allows users to check the availability of properties on shortlet.app for specific dates. This project is designed to showcase API development and containerization using Docker.
+## Availability API
 
-## Features
+**A simple Availability API mock project built with Flask to check property availability on shortlet.app.**
 
-- Returns available properties based on the provided date range.
-- Built with Python and Flask.
-- Containerized with Docker for easy deployment.
-
-## Getting Started
+This project demonstrates API development and containerization using Docker.
 
 ### Prerequisites
 
-Ensure you have the following installed on your machine:
-
-- Python 3.10 or above
-- Docker
-- Git
+- **Python 3.10 or later**
+- **Docker**
+- **Git**
 
 ### Setup Instructions
 
@@ -23,19 +16,46 @@ Ensure you have the following installed on your machine:
 
    ```bash
    git clone https://github.com/DanAletor/shortlet.app.git
-Install Dependencies
+   ```
 
-2. **Create a virtual environment and install the required dependencies:**
+2. **Install Dependencies**
 
-```bash
-python3 -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-pip install -r requirements.txt
+   ```bash
+   cd shortlet.app
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
 
 3. **Run the Application**
 
-Start the Flask application locally:
+   ```bash
+   python app.py
+   ```
 
-```bash
-python app.py
+   The API will be accessible at `http://localhost:5000/api/availability`.
 
+4. **Run with Docker**
+
+   ```bash
+   docker build -t availability-api .
+   docker run -p 5000:5000 availability-api
+   ```
+
+   Access the API at `http://localhost:5000/api/availability?start_date=2024-09-10&end_date=2024-09-20`.
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests. Contributions are always welcome!
+
+## Preview Page
+
+The Availability API includes a preview page to test the API functionality. This page allows users to input start and end dates and view available properties.
+
+### Accessing the Preview Page
+
+1. Run the application (see instructions above).
+2. Visit `http://localhost:5000` in your web browser.
+3. Enter the start and end dates to check property availability.
+
+The preview page dynamically fetches data from the Availability API and displays it.
