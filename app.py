@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 # Mock data representing properties and their availability
 properties = [
-    {"id": 1, "name": "Cozy City Apartment", "available_from": "2024-09-01", "available_to": "2024-09-30"},
-    {"id": 2, "name": "Beachfront Villa", "available_from": "2024-09-15", "available_to": "2024-10-15"},
-    {"id": 3, "name": "Mountain Cabin", "available_from": "2024-09-05", "available_to": "2024-09-20"},
+    {"id": 1, "name": "15, Herbert Macualy street, Yaba,Lagos ", "available_from": "2024-09-01", "available_to": "2024-09-30"},
+    {"id": 2, "name": "20, Jakande street, Victoria Island ", "available_from": "2024-09-10", "available_to": "2024-10-15"},
+    {"id": 3, "name": "35, Isaac Johnson Street, Ikeja", "available_from": "2024-09-02", "available_to": "2024-09-20"},
 ]
 
 def is_available(property, start_date, end_date):
@@ -43,6 +43,12 @@ def check_availability():
     available_properties = [property for property in properties if is_available(property, start_date, end_date)]
 
     return jsonify({'available_properties': available_properties}), 200
+
+@app.route('/api/time', methods=['GET'])
+def get_current_time():
+    """Returns the current time in a JSON format."""
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return jsonify({'current_time': current_time}), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

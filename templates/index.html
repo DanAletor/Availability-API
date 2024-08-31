@@ -30,7 +30,7 @@
         button:hover {
             background-color: #45a049;
         }
-        .results {
+        .results, .current-time {
             margin-top: 20px;
         }
         .property {
@@ -49,6 +49,10 @@
             <button type="submit">Check Availability</button>
         </form>
         <div class="results" id="results"></div>
+
+        <h2>Current Time</h2>
+        <button onclick="fetchCurrentTime()">Get Current Time</button>
+        <div class="current-time" id="current-time"></div>
     </div>
 
     <script>
@@ -78,6 +82,14 @@
                 resultsDiv.innerHTML = '<p>No properties available for the selected dates.</p>';
             }
         });
+
+        async function fetchCurrentTime() {
+            const response = await fetch('/api/time');
+            const data = await response.json();
+
+            const currentTimeDiv = document.getElementById('current-time');
+            currentTimeDiv.innerHTML = `<p>Current Time: ${data.current_time}</p>`;
+        }
     </script>
 </body>
 </html>
