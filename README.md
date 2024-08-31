@@ -44,10 +44,6 @@ This project demonstrates API development and containerization using Docker.
 
    Access the API at `http://localhost:5000/api/availability?start_date=2024-09-10&end_date=2024-09-20`.
 
-## Contributing
-
-Feel free to fork this repository and submit pull requests. Contributions are always welcome!
-
 ## Preview Page
 
 The Availability API includes a preview page to test the API functionality. This page allows users to input start and end dates and view available properties.
