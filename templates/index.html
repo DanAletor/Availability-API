@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability API Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .property {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Check Property Availability</h1>
+        <form id="availability-form">
+            <input type="date" id="start_date" name="start_date" required>
+            <input type="date" id="end_date" name="end_date" required>
+            <button type="submit">Check Availability</button>
+        </form>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('availability-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const startDate = document.getElementById('start_date').value;
+            const endDate = document.getElementById('end_date').value;
+            
+            const response = await fetch(`/api/availability?start_date=${startDate}&end_date=${endDate}`);
+            const data = await response.json();
+            
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            
+            if (data.available_properties && data.available_properties.length > 0) {
+                data.available_properties.forEach(property => {
+                    const propertyDiv = document.createElement('div');
+                    propertyDiv.classList.add('property');
+                    propertyDiv.innerHTML = `
+                        <h3>${property.name}</h3>
+                        <p>Available from: ${property.available_from}</p>
+                        <p>Available to: ${property.available_to}</p>
+                    `;
+                    resultsDiv.appendChild(propertyDiv);
+                });
+            } else {
+                resultsDiv.innerHTML = '<p>No properties available for the selected dates.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
+
