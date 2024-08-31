@@ -38,8 +38,8 @@ This project demonstrates API development and containerization using Docker.
 4. **Run with Docker**
 
    ```bash
-   docker build -t availability-api .
-   docker run -p 5000:5000 availability-api
+   sudo docker build -t availability-api .
+   sudo docker run -p 5000:5000 availability-api
    ```
 
    Access the API at `http://localhost:5000/api/availability?start_date=2024-09-10&end_date=2024-09-20`.
