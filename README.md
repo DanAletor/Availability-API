@@ -21,7 +21,7 @@ This project demonstrates API development and containerization using Docker.
 2. **Install Dependencies**
 
    ```bash
-   cd shortlet.app
+   cd Availability-API
    python3 -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    pip install -r requirements.txt
